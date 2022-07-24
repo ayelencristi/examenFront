@@ -1,0 +1,47 @@
+<div class="container bg-transparent primario box-balance m-4 mt-10 shadow">
+  <h2 class=""> Crear usuario </h2>
+  <form #formularioTD="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario(formularioTD)">
+    <div class="row">
+      <div class="form-group col-3">
+        <label for="nombre">Nombre</label>
+        <input #nombreControl="ngModel" type="text" class="form-control" id="nombre" name="nombre"
+               [(ngModel)]="user.name" required>
+        <div *ngIf="nombreControl.invalid && nombreControl.dirty" class="alert alert-warning">
+          <p>Campo requerido</p>
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label for="apellido">Apellido</label>
+        <input #apellidoControl="ngModel" type="text" class="form-control" id="apellido" name="apellido"
+               [(ngModel)]="user.lastname" required minlength="2">
+        <div *ngIf="apellidoControl.invalid && apellidoControl.dirty" class="alert alert-warning">
+          <p *ngIf="apellidoControl.errors['required']">Campo requerido</p>
+          <p *ngIf="apellidoControl.errors['minlength']">Cantidad mínima 2 caracteres</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="form-group col-3">
+      <label for="email">Email</label>
+      <input #emailControl="ngModel" type="text" class="form-control" id="email" name="email"
+             [(ngModel)]="user.email" required>
+      <div *ngIf="emailControl.invalid && emailControl.dirty" class="alert alert-warning">
+        <p>Campo requerido</p>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label for="pass">Contraseña</label>
+      <input #passControl="ngModel" type="text" class="form-control" id="pass" name="pass"
+             [(ngModel)]="user.password" required minlength="2">
+      <div *ngIf="passControl.invalid && apellidoControl.dirty" class="alert alert-warning">
+        <p *ngIf="passControl.errors['required']">Campo requerido</p>
+        <p *ngIf="passControl.errors['minlength']">Cantidad mínima 2 caracteres</p>
+      </div>
+    </div>
+    </div>
+    <div>
+      <button class="btn btn-success btn-light mt-4 mb-2" [disabled]="formularioTD.invalid"> Crear cuenta</button>
+    </div>
+  </form>
+</div>

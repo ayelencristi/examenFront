@@ -1,0 +1,74 @@
+<div class="container bg-transparent m-4">
+  <table class="table table-dark mt-3 table-striped">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+<!--      <th></th>-->
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.name}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.email}}</td>
+<!--      <td>-->
+<!--        <button class="btn btn-warning btn-sm" (click)="modificarUser(user.id)"><i class="fa-solid fa-pen"></i></button>-->
+<!--      </td>-->
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="eliminarUser(user.id)"><i class="fa-solid fa-trash"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-------------------------------------------------------------->
+
+<!--<div class="container-sm bg-transparent box-balance m-4 mt-10 shadow">-->
+<!--  <h2 class=""> Crear usuario </h2>-->
+<!--<form #formularioTD="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario(formularioTD)">-->
+<!--  &lt;!&ndash;Campo Nombre&ndash;&gt;-->
+<!--  <div class="form-group">-->
+<!--    <label for="nombre">Nombre</label>-->
+<!--    <input #nombreControl="ngModel" type="text" class="form-control" id="nombre" name="nombre"-->
+<!--           [(ngModel)]="user.name" required>-->
+<!--    <div *ngIf="nombreControl.invalid && nombreControl.dirty" class="alert alert-warning">-->
+<!--      <p>Campo requerido</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash;Campo Apellido&ndash;&gt;-->
+<!--  <div class="form-group">-->
+<!--    <label for="apellido">Apellido</label>-->
+<!--    <input #apellidoControl="ngModel" type="text" class="form-control" id="apellido" name="apellido"-->
+<!--           [(ngModel)]="user.lastname" required minlength="2">-->
+<!--    <div *ngIf="apellidoControl.invalid && apellidoControl.dirty" class="alert alert-warning">-->
+<!--      <p *ngIf="apellidoControl.errors['required']">Campo requerido</p>-->
+<!--      <p *ngIf="apellidoControl.errors['minlength']">Cantidad mínima 2 caracteres</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash;Campo Email&ndash;&gt;-->
+<!--  <div class="form-group">-->
+<!--    <label for="email">Email</label>-->
+<!--    <input #emailControl="ngModel" type="text" class="form-control" id="email" name="email"-->
+<!--           [(ngModel)]="user.email" required>-->
+<!--    <div *ngIf="emailControl.invalid && emailControl.dirty" class="alert alert-warning">-->
+<!--      <p>Campo requerido</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="pass">Contraseña</label>-->
+<!--    <input #passControl="ngModel" type="text" class="form-control" id="pass" name="pass"-->
+<!--           [(ngModel)]="user.password" required minlength="2">-->
+<!--    <div *ngIf="passControl.invalid && apellidoControl.dirty" class="alert alert-warning">-->
+<!--      <p *ngIf="passControl.errors['required']">Campo requerido</p>-->
+<!--      <p *ngIf="passControl.errors['minlength']">Cantidad mínima 2 caracteres</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <button class="btn btn-success btn-dark mt-4 mb-2" [disabled]="formularioTD.invalid">{{isAlta? 'Enviar' : 'Modificar'}}</button>-->
+<!--  </div>-->
+<!--</form>-->
+<!--</div>-->

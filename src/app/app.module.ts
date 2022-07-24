@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { UsersComponent } from './components/users/users.component';
+import { TableComponent } from './components/users/table/table.component';
 import {URL_SERVICE} from "./services/api-users.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { SignupComponent } from './components/users/signup/signup.component';
 
 
 
@@ -19,7 +20,8 @@ import {HttpClientModule} from "@angular/common/http";
     NavbarComponent,
     FooterComponent,
     MoviesComponent,
-    UsersComponent,
+    TableComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
