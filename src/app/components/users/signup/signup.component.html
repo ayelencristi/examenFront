@@ -1,4 +1,7 @@
+<app-navbar></app-navbar>
 <div class="container bg-transparent primario box-balance m-4 mt-10 shadow">
+  <div class="row">
+    <div class="align-items-center">
   <h2 class=""> Crear usuario </h2>
   <form #formularioTD="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario(formularioTD)">
     <div class="row">
@@ -44,4 +47,7 @@
       <button class="btn btn-success btn-light mt-4 mb-2" [disabled]="formularioTD.invalid"> Crear cuenta</button>
     </div>
   </form>
+  </div>
+  </div>
 </div>
+

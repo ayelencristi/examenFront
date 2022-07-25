@@ -1,24 +1,26 @@
 import {Inject, Injectable, InjectionToken} from '@angular/core';
-import {BASE_URL_MOVIES} from "../components/config/app";
+import {BASE_URL_MOVIES, movies_key} from "../components/config/app";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
 import {Item} from "../components/dominio/Item";
 import {Result} from "../components/dominio/Result";
 import {Filter} from "../components/dominio/Filter";
 
-export const URL_SERVICIO = new InjectionToken<string>('')
+export const URL_SERVICIO = new InjectionToken<string>(movies_key)
 @Injectable({
   providedIn: 'root'
 })
 export class ApiMoviesService {
 
   urlConstMovies: string = BASE_URL_MOVIES + 'movie/'
+  page:number;
   constructor(private http: HttpClient, @Inject(URL_SERVICIO) private url:string) { }
 
-  getHttpOptions() {
+  getHttpOption() {
     return {
       headers: new HttpHeaders({
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'api_key' : movies_key
       })
     }
   }
@@ -34,7 +36,7 @@ export class ApiMoviesService {
 
   getMovies({page}: Filter): Observable<Result> {
     return this.http
-      .get<Result>(this.urlConstMovies + 'top_rated?page=' + page)
+      .get<Result>(`${this.urlConstMovies}/'top_rated?page='/${page}`)
       .pipe(
         catchError(this.handleException)
       )

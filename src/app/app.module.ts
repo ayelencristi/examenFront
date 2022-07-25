@@ -7,10 +7,13 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { TableComponent } from './components/users/table/table.component';
-import {URL_SERVICE} from "./services/api-users.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { URL_SERVICE } from "./services/api-users.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 import { SignupComponent } from './components/users/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
+import { CarouselComponent } from './components/home/carousel/carousel.component';
+import { PlanesComponent } from './components/home/planes/planes.component';
 
 
 
@@ -22,6 +25,9 @@ import { SignupComponent } from './components/users/signup/signup.component';
     MoviesComponent,
     TableComponent,
     SignupComponent,
+    HomeComponent,
+    CarouselComponent,
+    PlanesComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,7 @@ import { SignupComponent } from './components/users/signup/signup.component';
     HttpClientModule
   ],
   providers: [
-    {provide: URL_SERVICE, useValue: 'https://62d6f29349c87ff2af30531f.mockapi.io/bootcamp-ng/api/v1/'}
+    { provide: URL_SERVICE, useValue: 'https://62d6f29349c87ff2af30531f.mockapi.io/bootcamp-ng/api/v1/' }
   ],
   bootstrap: [AppComponent]
 })
