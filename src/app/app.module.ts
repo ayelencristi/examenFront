@@ -14,6 +14,8 @@ import { SignupComponent } from './components/users/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { CarouselComponent } from './components/home/carousel/carousel.component';
 import { PlanesComponent } from './components/home/planes/planes.component';
+import { DevicesComponent } from './components/home/devices/devices.component';
+import { ProgrammingComponent } from './components/home/programming/programming.component';
 
 
 
@@ -28,6 +30,8 @@ import { PlanesComponent } from './components/home/planes/planes.component';
     HomeComponent,
     CarouselComponent,
     PlanesComponent,
+    DevicesComponent,
+    ProgrammingComponent
   ],
   imports: [
     BrowserModule,

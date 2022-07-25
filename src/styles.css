@@ -4,6 +4,14 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #090b13;
 }
+section {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 110px 40px 130px;
+  text-align: center;
+}
 
 .header {
   background-size: cover;
@@ -44,50 +52,43 @@ body {
 }
 
 .color-btn {
-  color: #157461;
+  color: #f9f9f9;
+  background-color: #6421FF;
   border: 1px solid transparent;
+  width: 50%;
+  margin-left: 25%;
+  font-size: 20px;
+
 }
 
 .color-btn:hover {
   transition-duration: 0.1s;
-
-  border: #49d6ba;
-  color: #157461;
+  border: #6421FF;
+  color: #FD4E22;
 }
 
 .color-btn:active {
   transition-duration: 0.1s;
-  border: #49d6ba;
-  color: #157461;
+  border: #6421FF;
+  color: #f9f9f9;
 }
 
 .color-btn:focus {
   transition-duration: 0.1s;
-  border: #49d6ba;
-  color: #157461;
+  border: #6421FF;
+  color: #f9f9f9;
 
 }
-
-.color-a {
-  background-color: white;
-  color: #49d6ba;
-  border: 1px solid transparent;
-  border-radius: 10%;
+.btn-subscribe{
+  height: 50px;
 }
-
-.color-a:active {
+.btn-subscribe:hover{
   transition-duration: 0.1s;
-  background-color: #49d6ba;
-  border: #49d6ba;
-  color: #157461;
+  color: #FD4E22;
 }
-
-.color-a:focus {
-  transition-duration: 0.1s;
-  background-color: #49d6ba;
-  border: #49d6ba;
-  color: #157461;
-
+.advertencia{
+  font-size: 12px;
+  font-weight: normal;
 }
 
 ul {
@@ -125,13 +126,14 @@ a:active {
 
 /* FOOTER */
 footer {
-  display: flex;
+  display:block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #090b13;
   padding: 60px 10px 40px;
+  background-size: cover;
 }
 
 .nav-footer {
@@ -141,40 +143,21 @@ footer {
   align-items: center;
   margin-bottom: 5px;
 }
-
-.nav-footer-menu {
-  display: flex;
-  justify-content: flex-end;
-  height: 25px;
-  align-items: center;
-  margin-right: 10px;
+.section{
+  display: block;
 }
-
-.nav-iconos {
+.center {
   display: flex;
-  justify-content: center;
-}
-
-.iconos-footer {
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 15%;
-  padding: 10%;
-  border-radius: 100%;
-  color: #5a837a;
-  background-color: white;
 }
 
-.relleno-iconos {
-  color: #5a837a;
-}
 
-.hecho-con-amor {
-  text-align: center;
-  color: #f9f9f9;
-  margin-left: 50px;
-}
+
+
+
+
 
 
 /*#202C33 gris whatsapp*/
