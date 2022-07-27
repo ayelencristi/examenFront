@@ -1,43 +1,22 @@
-import {Inject, Injectable, InjectionToken} from '@angular/core';
-import {BASE_URL_MOVIES} from "../components/config/app";
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, Observable, throwError} from "rxjs";
-import {Item} from "../components/dominio/Item";
-import {Result} from "../components/dominio/Result";
-import {Filter} from "../components/dominio/Filter";
+import { Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import { Observable} from "rxjs";
+import {Filter, Item, Result} from "../components/interfaces/item.interface";
 
-export const URL_SERVICIO = new InjectionToken<string>('')
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiMoviesService {
 
-  urlConstMovies: string = BASE_URL_MOVIES
-  page:number;
-  constructor(private http: HttpClient, @Inject(URL_SERVICIO) private url:string) { }
+  private apiURL: string = 'https://api.themoviedb.org/3/movie';
+  private apiKey: string = '2925626944a8c97f3cdc608fb886f9cc';
 
-  getHttpOption() {
-    return {
-      headers: new HttpHeaders({
-        'content-type': 'application/json'
-      })
-    }
+  constructor(private http: HttpClient) { }
+
+  getMovies(page: Filter): Observable<Result> {
+    const url = `${this.apiURL}/top_rated?api_key=${this.apiKey}&page=${page}`
+    return this.http.get<Result>(url);
   }
 
-  handleException(error: HttpErrorResponse){
-    if(error.error instanceof ErrorEvent){
-      console.log("Error de http front " + error.error.message)
-    } else {
-      console.log("Error de http back: "  +error.error.message + ' ' + error.error.status)
-    }
-    return throwError('Error de comunicación')
-  }
-
-  getMovies(): Observable<Result[]> {
-    return this.http
-      .get<Array<Result>>(`${this.urlConstMovies}`)
-      .pipe(
-        catchError(this.handleException)
-      )
-  }
 }

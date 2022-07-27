@@ -1,14 +1,19 @@
+<app-navbar></app-navbar>
+<section>
 <div class="container">
-  <div class="row">
-    <div *ngFor="let item of results" class="col-md-3 mb-4 bg-transparent card box-balance m-4 shadow">
+  <div class="row justify-content-center">
+    <div *ngFor="let item of items" class="col-md-3 mb-4 bg-transparent card box-balance m-4 shadow primario">
       <a class="nav-link" routerLink="details/{{item.id}}">
-        <img class="card-img img-responsive" src="http://image.tmdb.org/t/p/w500${{item.poster_path}}" alt="Imagen Peli"/>
+        <img class="card-img img-responsive" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="Imagen Peli"/>
       </a>
       <div class="row card-body">
         <div class="card-title h5"> {{item.title || item.name}} </div>
         <p class="card-text"> {{item.vote_average}}</p>
-        <button class="btn btn-dark"> VER </button>
+        <a class="btn btn-dark"> VER </a>
       </div>
     </div>
   </div>
 </div>
+</section>
+<app-footer></app-footer>
+

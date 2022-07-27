@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {User} from "../../dominio/User";
+import {User} from "../../interfaces/User";
 import {ApiUsersService} from "../../../services/api-users.service";
 
 @Component({
@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
   users: Array<User> = [];
   id: number;
 
-  constructor(private service: ApiUsersService, activeRoute: ActivatedRoute, router: Router) {
+  constructor(private service: ApiUsersService, activeRoute: ActivatedRoute, private router: Router) {
     activeRoute.params.subscribe(
       params => {
         this.id = params['id']
@@ -35,6 +35,6 @@ export class SignupComponent implements OnInit {
         this.users.push(response);
       });
     formularioTD.form.reset()
-    //preguntar el tema del ruteo, no me toma la variable
+    this.router.navigate(['']);
   }
 }

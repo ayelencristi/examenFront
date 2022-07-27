@@ -1,53 +1,48 @@
-<app-navbar></app-navbar>
-<div class="container bg-transparent primario box-balance m-4 mt-10 shadow">
-  <div class="row">
-    <div class="align-items-center">
-  <h2 class=""> Crear usuario </h2>
-  <form #formularioTD="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario(formularioTD)">
-    <div class="row">
-      <div class="form-group col-3">
-        <label for="nombre">Nombre</label>
+<div class="container-fluid bg-transparent primario box-balance m-4 mt-10">
+  <div class="center">
+    <h4 class=""> Crear usuario <i class="fa-solid fa-star secundario"></i></h4>
+  <form #formularioTD="ngForm" class="form-user shadow" autocomplete="off" (ngSubmit)="enviarFormulario(formularioTD)">
+      <div class="form-group ">
+        <label for="nombre"></label>
         <input #nombreControl="ngModel" type="text" class="form-control" id="nombre" name="nombre"
-               [(ngModel)]="user.name" required>
-        <div *ngIf="nombreControl.invalid && nombreControl.dirty" class="alert alert-warning">
-          <p>Campo requerido</p>
+               [(ngModel)]="user.name" placeholder="Nombre" required minlength="3">
+        <div *ngIf="nombreControl.invalid && nombreControl.dirty" class="alert-danger">
+          <div *ngIf="nombreControl.errors['required']"><i class="fa-solid fa-circle-xmark"></i> Campo requerido</div>
+          <div *ngIf="nombreControl.errors['minlength']"><i class="fa-solid fa-circle-xmark"></i> Cantidad mínima 3 caracteres</div>
         </div>
       </div>
-
-      <div class="form-group col-3">
-        <label for="apellido">Apellido</label>
+      <div class="form-group">
+        <label for="apellido"></label>
         <input #apellidoControl="ngModel" type="text" class="form-control" id="apellido" name="apellido"
-               [(ngModel)]="user.lastname" required minlength="2">
-        <div *ngIf="apellidoControl.invalid && apellidoControl.dirty" class="alert alert-warning">
-          <p *ngIf="apellidoControl.errors['required']">Campo requerido</p>
-          <p *ngIf="apellidoControl.errors['minlength']">Cantidad mínima 2 caracteres</p>
+               [(ngModel)]="user.lastname" placeholder="Apellido" required minlength="3">
+        <div *ngIf="apellidoControl.invalid && apellidoControl.dirty" class="alert-danger">
+          <div *ngIf="apellidoControl.errors['required']"><i class="fa-solid fa-circle-xmark"></i> Campo requerido</div>
+          <div *ngIf="apellidoControl.errors['minlength']"><i class="fa-solid fa-circle-xmark"></i> Cantidad mínima 3 caracteres</div>
         </div>
       </div>
-    </div>
-    <div class="row">
-    <div class="form-group col-3">
-      <label for="email">Email</label>
+    <div class="form-group">
+      <label for="email"></label>
       <input #emailControl="ngModel" type="text" class="form-control" id="email" name="email"
-             [(ngModel)]="user.email" required>
-      <div *ngIf="emailControl.invalid && emailControl.dirty" class="alert alert-warning">
-        <p>Campo requerido</p>
+             [(ngModel)]="user.email" ngModel email="true" placeholder="E-mail" required>
+      <div *ngIf="emailControl.invalid && emailControl.dirty" class="alert-danger">
+        <i class="fa-solid fa-circle-xmark"></i> Campo requerido ejemplo@cinemap.com
       </div>
-    </div>
-    <div class="form-group col-3">
-      <label for="pass">Contraseña</label>
+    <div class="form-group">
+      <label for="pass"></label>
       <input #passControl="ngModel" type="text" class="form-control" id="pass" name="pass"
-             [(ngModel)]="user.password" required minlength="2">
-      <div *ngIf="passControl.invalid && apellidoControl.dirty" class="alert alert-warning">
-        <p *ngIf="passControl.errors['required']">Campo requerido</p>
-        <p *ngIf="passControl.errors['minlength']">Cantidad mínima 2 caracteres</p>
+             [(ngModel)]="user.password" placeholder="Contraseña" required minlength="4">
+      <div *ngIf="passControl.invalid && apellidoControl.dirty" class="alert-danger">
+        <div *ngIf="passControl.errors['required']"><i class="fa-solid fa-circle-xmark"></i> Campo requerido</div>
+        <div *ngIf="passControl.errors['minlength']"><i class="fa-solid fa-circle-xmark"></i> Cantidad mínima 4 caracteres</div>
       </div>
     </div>
     </div>
     <div>
-      <button class="btn btn-success btn-light mt-4 mb-2" [disabled]="formularioTD.invalid"> Crear cuenta</button>
+      <button class="btn btn-dark btn-subscribe mt-4 mb-2" [disabled]="formularioTD.invalid"> Crear cuenta</button>
     </div>
   </form>
   </div>
-  </div>
 </div>
+<app-footer></app-footer>
+
 

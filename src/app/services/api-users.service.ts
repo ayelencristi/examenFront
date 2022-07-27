@@ -2,7 +2,7 @@ import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {BASE_URL} from "../components/config/app";
 import {catchError, Observable, throwError} from "rxjs";
-import {User} from "../components/dominio/User";
+import {User} from "../components/interfaces/User";
 
 export const URL_SERVICE = new InjectionToken<string>('');
 @Injectable({
