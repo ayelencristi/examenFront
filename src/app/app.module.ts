@@ -16,6 +16,7 @@ import { CarouselComponent } from './components/home/carousel/carousel.component
 import { PlanesComponent } from './components/home/planes/planes.component';
 import { DevicesComponent } from './components/home/devices/devices.component';
 import { ProgrammingComponent } from './components/home/programming/programming.component';
+import { UpdateComponent } from './components/users/update/update.component';
 
 
 
@@ -31,7 +32,8 @@ import { ProgrammingComponent } from './components/home/programming/programming.
     CarouselComponent,
     PlanesComponent,
     DevicesComponent,
-    ProgrammingComponent
+    ProgrammingComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

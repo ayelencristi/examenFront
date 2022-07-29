@@ -12,10 +12,9 @@ export class TableComponent implements OnInit {
 
   user: User = new User();
   users: Array<User>=[];
-  // isAlta: boolean=true;
   id:number;
 
-  constructor(private service:ApiUsersService, activeRoute: ActivatedRoute, router: Router) {
+  constructor(private service:ApiUsersService, activeRoute: ActivatedRoute, private router: Router) {
     activeRoute.params.subscribe(
       params => {
         this.id = params['id']
@@ -27,30 +26,27 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll().subscribe(response => this.users = response.data)
   }
-
-
-  eliminarUser(id:number){
-    console.log("Eliminé persona con ID " + id)
-    this.service
-      .deleteUser(id)
-      .subscribe(response => {
-        console.log("respuesta del delete: " +response)
-        this.service
-          .getAll()
-          .subscribe(response => this.users = response.data)
-      });
+  ngOnChange(): void {
+    this.service.getAll().subscribe(response => this.users = response.data)
   }
 
-  // modificarUser(id:number){
+
+
+  // eliminarUser(id:number){
+  //   console.log("Eliminé persona con ID " + id)
   //   this.service
-  //     .getById(id)
+  //     .deleteUser(id)
   //     .subscribe(response => {
-  //       console.log(response);
-  //       this.user = response;
-  //       this.isAlta= false;
-  //     })
-    //como rutear desde codigo
-    //router.navigate(['/mockpersona/' +id])
+  //       console.log("respuesta del delete: " +response)
+  //       this.service
+  //         .getAll()
+  //         .subscribe(response => this.users = response.data)
+  //     });
   // }
 
-}
+  modificarUser(id: number) {
+    this.service.getById(id)
+    this.router.navigate(['update/' + id])
+      }
+
+  }

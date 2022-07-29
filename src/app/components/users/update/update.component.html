@@ -1,0 +1,38 @@
+<div class="container-fluid bg-transparent primario box-balance m-4 mt-10">
+  <div class="center">
+    <h4 class=""> Crear usuario <i class="fa-solid fa-star secundario"></i></h4>
+  <form #formularioTD="ngForm" class="form-user shadow" autocomplete="off" (ngSubmit)="enviarFormulario(formularioTD)">
+      <div class="form-group ">
+        <label for="nombre"></label>
+        <input #nombreControl="ngModel" type="text" class="form-control" id="nombre" name="nombre"
+               [(ngModel)]="user.name" placeholder="Nombre" required minlength="3">
+        <div *ngIf="nombreControl.invalid && nombreControl.dirty" class="alert-danger">
+          <div *ngIf="nombreControl.errors['required']"><i class="fa-solid fa-circle-xmark"></i> Campo requerido</div>
+          <div *ngIf="nombreControl.errors['minlength']"><i class="fa-solid fa-circle-xmark"></i> Cantidad mínima 3 caracteres</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="apellido"></label>
+        <input #apellidoControl="ngModel" type="text" class="form-control" id="apellido" name="apellido"
+               [(ngModel)]="user.lastname" placeholder="Apellido" required minlength="3">
+        <div *ngIf="apellidoControl.invalid && apellidoControl.dirty" class="alert-danger">
+          <div *ngIf="apellidoControl.errors['required']"><i class="fa-solid fa-circle-xmark"></i> Campo requerido</div>
+          <div *ngIf="apellidoControl.errors['minlength']"><i class="fa-solid fa-circle-xmark"></i> Cantidad mínima 3 caracteres</div>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="pass"></label>
+      <input #passControl="ngModel" type="text" class="form-control" id="pass" name="pass"
+             [(ngModel)]="user.password" placeholder="Contraseña" required minlength="4">
+      <div *ngIf="passControl.invalid && apellidoControl.dirty" class="alert-danger">
+        <div *ngIf="passControl.errors['required']"><i class="fa-solid fa-circle-xmark"></i> Campo requerido</div>
+        <div *ngIf="passControl.errors['minlength']"><i class="fa-solid fa-circle-xmark"></i> Cantidad mínima 4 caracteres</div>
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-dark btn-subscribe mt-4 mb-2" [disabled]="formularioTD.invalid"> Actualizar datos </button>
+    </div>
+  </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -52,13 +52,13 @@ export class ApiUsersService {
 
   updateUser(id:number, user:User){
     return this.http
-      .put<User>(this.urlConst +  id, user, this.getHttpOptions() );
+      .put<User>(this.urlConst + '/' +  id, user, this.getHttpOptions() );
   }
 
-  deleteUser(id: number){
-    return this.http
-      .delete(this.urlConst + id)
-  }
+  // deleteUser(id: number){
+  //   return this.http
+  //     .delete(this.urlConst + id)
+  // }
 
 }
 
