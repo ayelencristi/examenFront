@@ -2,7 +2,7 @@ import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {BASE_URL} from "../components/config/app";
 import {catchError, Observable, throwError} from "rxjs";
-import {User} from "../components/interfaces/User";
+import {User, UserResponse} from "../components/interfaces/User";
 
 export const URL_SERVICE = new InjectionToken<string>('');
 @Injectable({
@@ -10,7 +10,7 @@ export const URL_SERVICE = new InjectionToken<string>('');
 })
 export class ApiUsersService {
 
-  urlConst: string = BASE_URL + 'users/'
+  urlConst: string = BASE_URL
   constructor(private http: HttpClient, @Inject(URL_SERVICE) private url:string) { }
   getHttpOptions(){
     return {
@@ -29,9 +29,9 @@ export class ApiUsersService {
     return throwError('Error de comunicación')
   }
 
-  getAll(): Observable<User[]> {
+  getAll(): Observable<UserResponse> {
     return this.http
-      .get<Array<User>>(this.urlConst)
+      .get<UserResponse>(this.urlConst)
       .pipe(
         catchError(this.handleException)
       )

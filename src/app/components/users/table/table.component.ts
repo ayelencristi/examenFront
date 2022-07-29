@@ -25,7 +25,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(response => this.users = response)
+    this.service.getAll().subscribe(response => this.users = response.data)
   }
 
 
@@ -37,7 +37,7 @@ export class TableComponent implements OnInit {
         console.log("respuesta del delete: " +response)
         this.service
           .getAll()
-          .subscribe(response => this.users = response)
+          .subscribe(response => this.users = response.data)
       });
   }
 

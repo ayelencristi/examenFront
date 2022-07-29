@@ -12,3 +12,9 @@ export class User {
       + this.lastname + ' - ' + this.email;
   }
 }
+export class UserResponse {
+  data: User[];
+  status: boolean;
+  message: string;
+
+}

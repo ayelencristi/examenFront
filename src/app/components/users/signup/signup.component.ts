@@ -35,6 +35,6 @@ export class SignupComponent implements OnInit {
         this.users.push(response);
       });
     formularioTD.form.reset()
-    this.router.navigate(['']);
+    this.router.navigate(['usuarios']);
   }
 }
