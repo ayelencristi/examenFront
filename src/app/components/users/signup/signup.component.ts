@@ -12,15 +12,15 @@ export class SignupComponent implements OnInit {
 
   user: User = new User();
   users: Array<User> = [];
-  id: number;
+  // id: number;
 
   constructor(private service: ApiUsersService, activeRoute: ActivatedRoute, private router: Router) {
-    activeRoute.params.subscribe(
-      params => {
-        this.id = params['id']
-        console.log(`ID de la url: ${this.id}`)
-      }
-    )
+    // activeRoute.params.subscribe(
+    //   params => {
+    //     this.id = params['id']
+    //     console.log(`ID de la url: ${this.id}`)
+    //   }
+    // )
   }
 
   ngOnInit(): void {

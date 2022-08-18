@@ -11,9 +11,7 @@ import {Filter, Item, Result} from "../interfaces/item.interface";
 })
 export class MoviesComponent implements OnInit{
 
-  // @ts-ignore
   items: Item[] = [];
-  // item: Item[];
   id:number;
   page: Filter;
 
@@ -29,14 +27,4 @@ export class MoviesComponent implements OnInit{
       this.items = [];
     })
   }
-
-  // movies(){
-  //   this.serviceMovies.getMovies()
-  //     .subscribe(resp => {
-  //       console.log(resp)
-  //     })
-  // }
-
-
-
 }
