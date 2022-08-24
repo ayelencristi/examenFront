@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="container bg-transparent m-4 primario">
+  <h3>Detalles de venta </h3>
+  <div class="center">
+    <table class="table primario tabla table-responsive ">
+      <thead>
+      <tr class="table-light">
+        <th>PRODUCTO</th>
+        <th>CANTIDAD</th>
+        <th>TOTAL</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let saleDetail of saleDetails">
+        <td>{{saleDetail.product}}</td>
+        <td>{{saleDetail.quantity}}</td>
+        <td>{{saleDetail.total}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>

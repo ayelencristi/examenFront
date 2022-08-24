@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiUsersService} from "../../../services/api-users.service";
+import {Seller} from "../../interfaces/Seller";
+import {ApiService} from "../../../services/api.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {User} from "../../interfaces/User";
 
 @Component({
   selector: 'app-users',
@@ -10,43 +10,26 @@ import {User} from "../../interfaces/User";
 })
 export class TableComponent implements OnInit {
 
-  user: User = new User();
-  users: Array<User>=[];
-  id:number;
+  seller: Seller = new Seller();
+  sellers: Array<Seller>;
+  // id:number;
 
-  constructor(private service:ApiUsersService, activeRoute: ActivatedRoute, private router: Router) {
-    activeRoute.params.subscribe(
-      params => {
-        this.id = params['id']
-        console.log(`ID de la url: ${this.id}`)
-      }
-    )
+  constructor(private service:ApiService, activeRoute: ActivatedRoute, private router: Router) {
+    // activeRoute.params.subscribe(
+    //   params => {
+    //     this.id = params['id']
+    //     console.log(`ID de la url: ${this.id}`)
+    //   }
+    // )
   }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(response => this.users = response.data)
+    // @ts-ignore
+    this.service.getAllSellers().subscribe(response => this.sellers = response)
   }
   ngOnChange(): void {
-    this.service.getAll().subscribe(response => this.users = response.data)
+    // this.service.getAll().subscribe(response => this.users = response.data)
   }
 
-
-
-  // eliminarUser(id:number){
-  //   console.log("Eliminé persona con ID " + id)
-  //   this.service
-  //     .deleteUser(id)
-  //     .subscribe(response => {
-  //       console.log("respuesta del delete: " +response)
-  //       this.service
-  //         .getAll()
-  //         .subscribe(response => this.users = response.data)
-  //     });
-  // }
-
-  modificarUser(id: number) {
-    this.service.getById(id)
-    this.router.navigate(['update/' + id])
-      }
 
   }

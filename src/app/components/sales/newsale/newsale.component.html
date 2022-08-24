@@ -1,0 +1,33 @@
+<div class="container-fluid bg-transparent primario box-balance m-4 mt-10">
+  <div class="center">
+    <h4 class=""> Nueva venta <i class="fa-solid fa-star secundario"></i></h4>
+    <form #formularioTD="ngForm" class="form-user shadow" autocomplete="off" (ngSubmit)="enviarFormulario(formularioTD)">
+      <div class="form-group ">
+        <label>Seleccionar vendedor</label>
+        <select class="form-select" aria-label="Default select example"  name="sellers" [(ngModel)]="seller">
+          <option *ngFor="let seller of sellers" [ngValue]="seller">{{seller.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Seleccione producto</label>
+        <select class="form-select" aria-label="Default select example" name="product" [(ngModel)]="product">
+          <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quantity"></label>
+        <input #quantityControl="ngModel" type="number" class="form-control" id="quantity" name="quantity"
+                [(ngModel)]="quantity" quantity="true" placeholder="Cantidad" required>
+      </div>
+      <div>
+        <button class="btn btn-dark btn-subscribe mt-4 mb-2" [disabled]="formularioTD.invalid"> Guardar venta</button>
+      </div>
+      <h3>
+        <small>
+          {{seller.name}} | {{product.name}} | {{quantity}}
+        </small>
+      </h3>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

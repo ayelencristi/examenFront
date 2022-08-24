@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container bg-transparent m-4 primario">
+  <h3>Tabla de ventas </h3>
+  <div class="center">
+    <table class="table primario tabla table-responsive ">
+      <thead>
+      <tr class="table-light">
+        <th>CODIGO</th>
+        <th>FECHA</th>
+        <th>VENDEDOR</th>
+        <th>TOTAL</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{sale.id}}</td>
+        <td>{{sale.date}}</td>
+        <td>{{sale.seller.name}}</td>
+        <td>{{sale.total}}</td>
+        <td><button class="btn btn-danger btn-sm" (click)="getDetails(sale.id)">Ver detalle</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>

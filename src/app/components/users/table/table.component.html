@@ -1,24 +1,25 @@
 <app-navbar></app-navbar>
 <div class="container bg-transparent m-4 primario">
-  <h3>Tabla de usuarios </h3>
+  <h3>Tabla de vendedores </h3>
   <div class="center">
   <table class="table primario tabla table-responsive ">
     <thead>
     <tr class="table-light">
+      <th>CODIGO</th>
       <th>NOMBRE</th>
-      <th>APELLIDO</th>
-      <th>EMAIL</th>
-      <th></th>
+      <th>SALARIO</th>
+      <th>COMISION</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{user.name}}</td>
-      <td>{{user.lastname}}</td>
-      <td>{{user.email}}</td>
+    <tr *ngFor="let seller of sellers">
+      <td>{{seller.code}}</td>
+      <td>{{seller.name}}</td>
+      <td>{{seller.salary}}</td>
+      <td>{{seller.commission}}</td>
       <td>
-        <button class="btn btn-danger btn-sm" (click)="modificarUser(user.id)"><i class="fa-solid fa-pen"></i></button>
+        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-pen"></i></button>
       </td>
     </tr>
     </tbody>

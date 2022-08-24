@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MoviesComponent } from "./components/movies/movies.component";
 import { TableComponent } from "./components/users/table/table.component";
-import { SignupComponent } from "./components/users/signup/signup.component";
 import { HomeComponent } from "./components/home/home.component";
 import { UpdateComponent } from './components/users/update/update.component';
+import {ProductsComponent} from "./components/products/products.component";
+import {NewsaleComponent} from "./components/sales/newsale/newsale.component";
+import {SalestableComponent} from "./components/sales/salestable/salestable.component";
+import {SaledetailsComponent} from "./components/sales/saledetails/saledetails.component";
 
 const routes: Routes = [
-  { path: 'movies', component: MoviesComponent },
-  { path: 'usuarios', component: TableComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'sales', component: SalestableComponent },
+  { path: 'product', component: ProductsComponent },
+  { path: 'users', component: TableComponent },
+  { path: 'newsale', component: NewsaleComponent },
+  { path: 'saledetails', component: SaledetailsComponent},
   {path: 'update/:id', component: UpdateComponent},
-  { path: '', component: HomeComponent },
-  // {path: '', pathMatch: 'full', redirectTo: ''}
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

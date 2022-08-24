@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container bg-transparent m-4 primario">
+  <h3>Tabla de prodcutos </h3>
+  <div class="center">
+    <table class="table primario tabla table-responsive ">
+      <thead>
+      <tr class="table-light">
+        <th>CODIGO</th>
+        <th>NOMBRE</th>
+        <th>CATEGORIA</th>
+        <th>PRECIO</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.code}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.amount}}</td>
+        <td>
+          <button class="btn btn-danger btn-sm"><i class="fa-solid fa-pen"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>
